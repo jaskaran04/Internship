@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clickable Area</title>
+        <style>
+            .clickable-area{
+                position: relative;
+                display: inline-block;
+                border: 1px solid red;
+                padding: 10px;
+                margin: 10px;
+                cursor: pointer;
+            }
+            .clickalble-area:hover{
+                background-color: lightgray;
+            }
+            .clickable-area::after{
+                content: "Click me";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="clickable-area" onclick="window.open('page1.html','_blank')">
+            Area 1
+        </div>
+        <div class="clickable-area" onclick="window.open('page2.html','_blank')">
+            Area 2
+        </div>
+        <div class="clickable-area" onclick="window.open('page3.html','_blank')">
+            Area 3
+        </div>
+    </body>
+</html>
