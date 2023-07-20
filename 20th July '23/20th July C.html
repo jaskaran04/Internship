@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1 align = "center">Admission Form</h1>
+        <h2 align = "center">Sri Venkateshwar International School</h2>
+        <form action = "/action_page.php" autocomplete="on">
+            <label for = "fname">First Name:</label>
+            <input type = "text" id = "fname" value = "">
+            <label for = "lname">Last Name:</label>
+            <input type = "text" id = "lname" value = ""><br>
+            <hr>
+            <label for = "add">Address:</label><br>
+            <input type = "text" id = "add" value = ""><br>
+            <hr>
+            <label for = "phn">Contact Number:</label>
+            <input type = "number" id = "phn" value = "">
+            <hr>
+            <fieldset>
+                <p>*Press ctrl and use the mouse pointer to select multiple options*</p>
+                <legend>Subjects:</legend>
+                <label for = "Subjects">Kindly choose the subjects you would like to enroll in:</label><br>
+                <select name = "Subjects" id = "Subjects" multiple>
+                    <optgroup label = "Subjects">
+                        <option value = "Mathematics">Mathematics</option>
+                        <option value = "English">English</option>
+                        <option value = "Psychology">Psychology</option>
+                        <option value = "Physics">Physics</option>
+                        <option value = "Chemistry">Chemistry</option>
+                        <option value = "Biology">Biology</option>
+                        <option value = "French">French</option>
+                        <option value = "German">German</option>
+                    </optgroup>
+                </select>
+            </fieldset>
+            <hr>
+            <label for = "email">EMail Address:</label><br>
+            <input type = "email" id = "email" value = ""><br>
+            <hr>
+            <input type = "submit" value = "Submit">
+        </form>
+    </body>
+</html>
