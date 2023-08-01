@@ -1,0 +1,91 @@
+.div1 {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+}
+.signup {
+    background-color: blue;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.signup i {
+    margin-right: 5px;
+}
+.hac {
+    background-color: red;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.hac i {
+    margin-right: 5px;
+}
+.div2 {
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: center;
+}
+.div3 {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    gap: 10px;
+}
+.paypal {
+    background-color: white;
+    color: grey;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.paypal i {
+    margin-right: 5px;
+}
+.bit {
+    background-color: white;
+    color: lightskyblue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.bit i {
+    margin-right: 5px;
+}
+.div4 {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+}
+.Pay {
+    background-color: steelblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.Pay i {
+    margin-right: 5px;
+}
