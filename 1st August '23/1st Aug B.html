@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1 id = "output">This is the previous output.</h1>
+        <script>
+            alert("This is an alert box.");
+            console.log("This message will be displayed in the console.");
+            document.getElementById("output").innerHTML = "This is the modified output (refer the code).";
+            const name = prompt("What is your name?");
+            const result = confirm("Are you sure you want to maintain the signature?");
+            if (result){
+                alert("Hello, "+ name + " welcome to our website!");
+            }
+            else{
+                alert("Welcome User!");
+            }
+            document.write("This content would directly be displayed in the document.");
+        </script>
+        <div id = "output0">
+            <script>
+                const paragraph = document.createElement("h2");
+                paragraph.textContent = "This is a new Heading2 content created using JavaScript.";
+                document.getElementById("output").appendChild(paragraph); 
+            </script>
+        </div>
+    </body>
+</html>
