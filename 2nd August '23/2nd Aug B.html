@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id = "output"></p>
+        <script>
+            const input = prompt("Enter your user input: ");
+            const num = parseInt(input);
+            function star(n){
+                let result = '';
+                result = result + '*'.repeat(n) + '<br>';
+                for (let i = 0; i < n-2; i++){
+                    result = result + '*' + ' '.repeat(n-2) + '*' + '<br>';
+                }
+                result = result + '*'.repeat(n) + '<br>';
+                document.getElementById("output").innerHTML = result;
+            }
+            star(num);
+        </script>
+    </body>
+</html>

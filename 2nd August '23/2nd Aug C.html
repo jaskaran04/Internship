@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id = "output"></p>
+        <script>
+            const num = prompt("Enter your user input: ");
+            function numberpattern(n){
+                let result = '';
+                for (let i = 1; i <= n; i++){
+                    let spaces = n - i;
+                    for (let k = 0; k < spaces; k++){
+                        result+=' ';
+                    }
+                    for (let j = 1; j <= 2*i-1; j++){
+                        result+=j;
+                    }
+                    result+='<br>';
+                } 
+                document.getElementById("output").innerHTML = result;
+            }
+            numberpattern(num);
+        </script>
+    </body>
+</html>
