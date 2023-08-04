@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Interest Calculator</h1>
+    <form id="interestform">
+      <label for="principal">Principal Amount:</label>
+      <input type="number" id="principal" value="0.00" required><br>
+      <label for="rate">Rate of Interest:</label>
+      <input type="number" id="rate" value="0.00" required><br>
+      <label for="time">Time:</label>
+      <input type="number" id="time" value="0" required><br>
+      <label for="interest-type">Choose your form of interest:</label>
+      <select id="interest-type">
+        <option value="si">Simple Interest</option>
+        <option value="ci">Compound Interest</option>
+      </select><br>
+      <button type="submit">Compute</button>
+    </form>
+    <p id="result"></p>
+    <script>
+      document.getElementById("interestform").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const principal = parseFloat(document.getElementById("principal").value);
+        const rate = parseFloat(document.getElementById("rate").value);
+        const time = parseFloat(document.getElementById("time").value);
+        const interestype = document.getElementById("interest-type").value;
+        if (isNaN(principal) || isNaN(rate) || isNaN(time)) {
+          displayError("Please enter numerical values for all the fields.");
+          return;
+        }
+        if (principal <= 0 || rate <= 0 || time <= 0) {
+          displayError("All values must be greater than zero.");
+          return;
+        }
+        let interest;
+        if (interestype === "si") {
+          interest = simpleinterest(principal, rate, time);
+        } else {
+          interest = compoundinterest(principal, rate, time);
+        }
+        displayResult(interest);
+      });
+
+      function simpleinterest(p, r, t) {
+        return (p * r * t) / 100;
+      }
+
+      function compoundinterest(p, r, t) {
+        return ((p * ((1 + r / 100) ** t))-p);
+      }
+
+      function displayError(message) {
+        document.getElementById("result").innerHTML = `<span style="color:red;">Error: ${message}</span>`;
+      }
+
+      function displayResult(interest) {
+        document.getElementById("result").innerHTML = `Calculated Interest: ${interest.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

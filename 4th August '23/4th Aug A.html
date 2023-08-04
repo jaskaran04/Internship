@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            class Area{
+                static square (s){
+                    return s*s;
+                }
+                static rectangle (l,b){
+                    return l*b;
+                }
+                static triangle (b,h){
+                    return 0.5*b*h;
+                }
+            }
+            const shape = prompt("Enter your choice of shape?");
+            if ((shape == 'square') || (shape == 'Square')){
+                const side = prompt("Enter the value of side:");
+                console.log("Area of square: ",Area.square(side));
+            }
+            else if ((shape == 'rectangle') || (shape == 'Rectangle')){
+                const length = prompt("Enter the value of length: ");
+                const breadth = prompt("Enter the value of breadth: ");
+                console.log("Area of rectangle: ",Area.rectangle(length,breadth));
+            }
+            else if ((shape == 'triangle') || (shape == 'Triangle')){
+                const base = prompt("Enter the value of base: ");
+                const height = prompt("Enter the value of height: ");
+                console.log("Area of triangle: ",Area.triangle(base,height));
+            }
+            else{
+                alert("Invalid Input.");
+            }
+        </script>
+    </body>
+</html>

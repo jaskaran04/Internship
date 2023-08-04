@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      function Person(name, age) {
+        let Privatename = name;
+        this.age = age;
+        this.getname = function () {
+          return Privatename;
+        };
+        this.setname = function (newName) {
+          Privatename = newName;
+        };
+      }
+      const person = new Person('Ramgopal', 30);
+      console.log(person.age);
+      console.log(person.getname()); 
+      person.setname('Shekhar');
+      console.log(person.getname());
+    </script>
+  </body>
+</html>
