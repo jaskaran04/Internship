@@ -9,7 +9,7 @@
                 let result = '';
                 result = result + '*'.repeat(n) + '<br>';
                 for (let i = 0; i < n-2; i++){
-                    result = result + '*' + ' '.repeat(n-2) + '*' + '<br>';
+                    result = result + '*' + '&nbsp;'.repeat(n-2) + '*' + '<br>';
                 }
                 result = result + '*'.repeat(n) + '<br>';
                 document.getElementById("output").innerHTML = result;
