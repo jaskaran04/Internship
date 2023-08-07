@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bulb Illumination</title>
+        <style>
+            .bulb-image{
+                width: 150px;
+                height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <img id = "bulb" class = "bulb-image" src = "https://toppng.com/uploads/preview/light-bulb-on-off-png-115539402943y50vxr5yi.png" alt = "bulb-off">
+        <button id = "Bulb-button" onclick = "togglebulb()">Turn On</button>
+
+        <script>
+            function togglebulb(){
+                var bulbimage = document.getElementById("bulb");
+                var bulbutton = document.getElementById("Bulb-button");
+                if (bulbimage.src.endsWith("vxr5yi.png")){
+                    bulbimage.src = "https://cdn4.vectorstock.com/i/1000x1000/48/08/realistic-glowing-light-bulb-on-dark-background-vector-3374808.jpg";
+                    bulbimage.alt = "bulb-on";
+                    bulbutton.textContent = "Turn Off";
+                }
+                else{
+                    bulbimage.src = "https://toppng.com/uploads/preview/light-bulb-on-off-png-115539402943y50vxr5yi.png";
+                    bulbimage.alt = "bulb-on";
+                    bulbutton.textContent = "Turn On";
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p{
+                font-size: 20px;
+                color: blue;
+            }
+            img{
+                width: 200px;
+                height: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>This is a sample heading.</h1>
+        <p>This is a sample paragraph.</p>
+        <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaW7OrO1VfC-eeGwlFfQ7MzQ_P-7lUsTsTyHwatM7T&s" alt = "Old Image">
+
+        <script>
+            function textchange(){
+                document.getElementsByTagName("h1")[0].innerText = "This is the new sample heading.";
+            }
+            function stylechange(){
+                var paraelement = document.getElementsByTagName("p")[0];
+                paraelement.style.fontSize = "24px";
+                paraelement.style.color = "red"; 
+            }
+            function imagechange(){
+                document.getElementsByTagName("img")[0].src = "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg";
+                document.getElementsByTagName("img")[0].alt = "New Image";
+            }
+        </script>
+
+        <button onclick = "textchange()">Change Text</button>
+        <button onclick = "stylechange()">Change Style</button>
+        <button onclick = "imagechange()">Change Image</button>
+    </body>
+</html>
