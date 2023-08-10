@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial scale = 1.0">
+        <title>Student Registration Form</title>
+        <style>
+            .error-message{
+                color: red;
+            }
+        </style> 
+    </head>
+    <body>
+        <h1>Student Registration Form</h1>
+        <form id = "registrationform">
+            <label for = "firstname">First Name:</label>
+            <input type = "text" id = "firstname" name = "firstname" required>
+            <span class = "error-message" id = "firstnameError"></span><br><br>
+            <label for = "lastname">Last Name:</label>
+            <input type = "text" id = "lastname" name = "lastname" required>
+            <span class = "error-message" id = "lastnameError"></span><br><br>
+            <label for = "age">Age:</label>
+            <input type = "number" id = "age" name = "age" required>
+            <span class = "error-message" id = "ageError"></span><br><br>
+            <label for = "email">Email ID:</label>
+            <input type = "email" id = "email" name = "email" required>
+            <span class = "error-message" id = "emailError"></span><br><br>
+            <button type = "submit">Register</button>
+        </form>
+        <script>
+
+            const form = document.getElementById("registrationform");
+
+            form.addEventListener("submit", function(event){
+                event.preventDefault();
+
+                const firstname = document.getElementById("firstname");
+                const lastname = document.getElementById("lastname");
+                const age = document.getElementById("age");
+                const email = document.getElementById("email");
+
+                const firstnameError = document.getElementById("firstnameError");
+                const lastnameError = document.getElementById("lastnameError");
+                const ageError = document.getElementById("ageError");
+                const emailError = document.getElementById("emailError");
+
+                firstnameError.textContent = "";
+                lastnameError.textContent = "";
+                ageError.textContent = "";
+                emailError.textContent = "";
+
+                if (firstname.value.trim() === ""){
+                    firstnameError.textContent = "First Name is required.";
+                }
+                if (lastname.value.trim() === ""){
+                    lastnameError.textContent = "Last Name is required.";
+                }
+                if (email.value.trim() === ""){
+                    emailError.textContent = "Email is required.";
+                }
+                else if (!isValidemail(email.value)){
+                    emailError.textContent = "Invalid email format.";
+                }
+                if (age.value === ""){
+                    ageError.textContent = "Age is required.";
+                }
+                else if(isNaN(age.value) || age.value < 18 || age.value > 99){
+                    ageError.textContent = "Invalid age.";
+                }
+                if (!firstnameError.textContent && !lastnameError.textContent && !ageError.textContent && !emailError.textContent){
+                    form.submit();
+                }
+            });
+
+            function isValidemail(email){
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial scale = 1.0">
+        <title>preventDefault() vs stopPropogation()</title>
+    </head>
+    <body>
+        <h1>Event Example</h1>
+        <button id = "outerbutton">Outer Button</button>
+        <button id = "innerbutton">Inner Button</button>
+        <script>
+            const outerbutton = document.getElementById("outerbutton");
+            const innerbutton = document.getElementById("innerbutton");
+
+            outerbutton.addEventListener("click", function(event){
+                alert("Outer Button clicked.");
+                event.preventDefault();
+            });
+            innerbutton.addEventListener("click", function(event){
+                alert("Inner Button clicked.");
+            });
+            innerbutton.addEventListener("click", function(event){
+                alert("Inner Button clicked.");
+                event.stopPropagation();
+            });
+            outerbutton.addEventListener("click", function(event){
+                alert("Outer Button clicked.");
+            });
+        </script>
+    </body>
+</html>

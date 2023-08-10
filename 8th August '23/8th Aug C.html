@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  #eventElement {
+    width: 300px;
+    height: 100px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+  }
+</style>
+<script>
+function displayEvent(eventType) {
+  var eventElement = document.getElementById('eventElement');
+  eventElement.innerHTML = 'Current Event: ' + eventType;
+}
+function clearEvent() {
+  var eventElement = document.getElementById('eventElement');
+  eventElement.innerHTML = 'Mouse Events Demo';
+}
+</script>
+</head>
+<body>
+<div id="eventElement" 
+     onmouseover="displayEvent('mouseover')" 
+     onmouseout="displayEvent('mouseout')" 
+     onclick="displayEvent('click')" 
+     ondblclick="displayEvent('dblclick')" 
+     oncontextmenu="displayEvent('contextmenu')" 
+     onmousedown="displayEvent('mousedown')" 
+     onmouseup="displayEvent('mouseup')" 
+     onmousemove="displayEvent('mousemove')"
+     onmouseenter="displayEvent('mouseenter')" 
+     onmouseleave="displayEvent('mouseleave')" 
+     onwheel="displayEvent('wheel')"
+     ondrag="displayEvent('drag')" 
+     ondragstart="displayEvent('dragstart')" 
+     ondragend="displayEvent('dragend')"
+     ondragover="displayEvent('dragover')" 
+     ondragenter="displayEvent('dragenter')" 
+     ondragleave="displayEvent('dragleave')" 
+     ondrop="displayEvent('drop')"
+     onselect="displayEvent('select')" 
+     onfocus="displayEvent('focus')" 
+     onblur="displayEvent('blur')">
+  Mouse Events Demo
+</div>
+<p>Interact with the gray box above to see the current mouse event!</p>
+</body>
+</html>
