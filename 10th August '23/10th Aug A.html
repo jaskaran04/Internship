@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plan your journey!</title>
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+    <div id="header">
+        <h1>Plan your journey</h1>
+        <label for="source">From: </label>
+        <select name="from">
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Varanasi">Varanasi</option>
+            <option value="Roorkee">Roorkee</option>
+            <option value="Chennai">Chennai</option>
+        </select>
+        <label for="destination">To: </label>
+        <select name="to">
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Varanasi">Varanasi</option>
+            <option value="Roorkee">Roorkee</option>
+            <option value="Chennai">Chennai</option>
+        </select><br>
+        <button type="button" id="button">Add Journey</button>
+        <div id="journey-list"></div>
+    </div>
+    <script>
+        const fromSelect = document.querySelector('#header select[name="from"]');
+        const toSelect = document.querySelector('#header select[name="to"]');
+        const addButton = document.querySelector('#header #button');
+        const journeyList = document.querySelector('#journey-list');
+
+        const existingJourneys = new Set();
+
+        addButton.addEventListener('click', () => {
+            const fromValue = fromSelect.value;
+            const toValue = toSelect.value;
+            if (fromValue !== toValue && !existingJourneys.has(`${fromValue}-${toValue}`)) {
+                const journey = document.createElement("p");
+                journey.textContent = `Journey from ${fromValue} to ${toValue}`;
+                journeyList.appendChild(journey);
+                existingJourneys.add(`${fromValue}-${toValue}`);
+            }
+        });
+    </script>
+</body>
+</html>
