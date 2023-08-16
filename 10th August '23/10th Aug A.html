@@ -37,12 +37,24 @@
         addButton.addEventListener('click', () => {
             const fromValue = fromSelect.value;
             const toValue = toSelect.value;
-            if (fromValue !== toValue && !existingJourneys.has(`${fromValue}-${toValue}`)) {
-                const journey = document.createElement("p");
-                journey.textContent = `Journey from ${fromValue} to ${toValue}`;
-                journeyList.appendChild(journey);
-                existingJourneys.add(`${fromValue}-${toValue}`);
+
+            if (fromValue === toValue){
+                alert("Source and destination can't be the same.");
+                return;
             }
+
+            if (existingJourneys.has(`${fromValue}-${toValue}`)){
+                alert("This journey has already been added.");
+                return;
+            }
+
+            const journey = document.createElement("p");
+            journey.textContent = `Journey from ${fromValue} to ${toValue}`;
+            journeyList.appendChild(journey);
+            existingJourneys.add(`${fromValue}-${toValue}`);
+
+            toSelect.querySelector(`option[value="${fromValue}"]`).disabled = true;
+            fromSelect.querySelector(`option[value="${toValue}"]`).disabled = true;
         });
     </script>
 </body>
