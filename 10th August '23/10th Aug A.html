@@ -2,13 +2,13 @@
 <html>
 <head>
     <title>Plan your journey!</title>
-    <link rel = "stylesheet" href = "style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="header">
         <h1>Plan your journey</h1>
         <label for="source">From: </label>
-        <select name="from">
+        <select id="fromSelect" name="from">
             <option value="Delhi">Delhi</option>
             <option value="Mumbai">Mumbai</option>
             <option value="Varanasi">Varanasi</option>
@@ -16,7 +16,7 @@
             <option value="Chennai">Chennai</option>
         </select>
         <label for="destination">To: </label>
-        <select name="to">
+        <select id="toSelect" name="to">
             <option value="Delhi">Delhi</option>
             <option value="Mumbai">Mumbai</option>
             <option value="Varanasi">Varanasi</option>
@@ -27,23 +27,16 @@
         <div id="journey-list"></div>
     </div>
     <script>
-        const fromSelect = document.querySelector('#header select[name="from"]');
-        const toSelect = document.querySelector('#header select[name="to"]');
-        const addButton = document.querySelector('#header #button');
-        const journeyList = document.querySelector('#journey-list');
-
+        const fromSelect = document.getElementById("fromSelect");
+        const toSelect = document.getElementById("toSelect");
+        const addButton = document.getElementById("button");
+        const journeyList = document.getElementById("journey-list");
         const existingJourneys = new Set();
 
-        addButton.addEventListener('click', () => {
-            const fromValue = fromSelect.value;
-            const toValue = toSelect.value;
+        function addJourney(fromValue, toValue) {
+            const journeyKey = `${fromValue}-${toValue}`;
 
-            if (fromValue === toValue){
-                alert("Source and destination can't be the same.");
-                return;
-            }
-
-            if (existingJourneys.has(`${fromValue}-${toValue}`)){
+            if (existingJourneys.has(journeyKey)) {
                 alert("This journey has already been added.");
                 return;
             }
@@ -51,10 +44,42 @@
             const journey = document.createElement("p");
             journey.textContent = `Journey from ${fromValue} to ${toValue}`;
             journeyList.appendChild(journey);
-            existingJourneys.add(`${fromValue}-${toValue}`);
+            existingJourneys.add(journeyKey);
 
             toSelect.querySelector(`option[value="${fromValue}"]`).disabled = true;
             fromSelect.querySelector(`option[value="${toValue}"]`).disabled = true;
+        }
+
+        addButton.addEventListener("click", () => {
+            const fromValue = fromSelect.value;
+            const toValue = toSelect.value;
+
+            if (fromValue === toValue) {
+                alert("Source and destination can't be the same.");
+                return;
+            }
+
+            addJourney(fromValue, toValue);
+        });
+
+        fromSelect.addEventListener("change", () => {
+            const selectedFromValue = fromSelect.value;
+            const selectedToValue = toSelect.value;
+            toSelect.querySelectorAll("option").forEach(option => {
+                option.disabled = false;
+            });
+            toSelect.querySelector(`option[value="${selectedFromValue}"]`).disabled = true;
+            addJourney(selectedFromValue, selectedToValue);
+        });
+
+        toSelect.addEventListener("change", () => {
+            const selectedFromValue = fromSelect.value;
+            const selectedToValue = toSelect.value;
+            fromSelect.querySelectorAll("option").forEach(option => {
+                option.disabled = false;
+            });
+            fromSelect.querySelector(`option[value="${selectedToValue}"]`).disabled = true;
+            addJourney(selectedFromValue, selectedToValue);
         });
     </script>
 </body>
